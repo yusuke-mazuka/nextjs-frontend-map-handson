@@ -2,14 +2,13 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ['main']
 
-  # Allows you to run this workflow manually from the Actions tab
+  # 手動実行を可能とする
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# GitHub PagesにデプロイできるようにするためGITHUB_TOKENの権限設定
 permissions:
   contents: read
   pages: write
@@ -18,11 +17,11 @@ permissions:
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 env:
-  # Setting an environment variable with the value of a configuration variable
+  # Next.jsで使用する環境変数を設定
   NEXT_PUBLIC_BASE_PATH: ${{ vars.BASE_PATH }}
 
 jobs:
@@ -30,28 +29,38 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
       # Node.jsの準備
-      - uses: actions/checkout@v3
-      - name: Use Node.js v20
+      - name: Setup Node.js v20
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: "npm"
+          cache: 'npm'
+
       # インストール
-      - run: npm ci
-      # ビルド
-      - run: npm run build --if-present
+      - name: Install Dependencies
+        run: npm ci
+
+      # ビルド ※buildが定義されている場合のみ実行。
+      - name: Build
+        run: npm run build --if-present
 
       # デプロイ
       - name: Setup Pages
         uses: actions/configure-pages@v3
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
           path: './out/'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
