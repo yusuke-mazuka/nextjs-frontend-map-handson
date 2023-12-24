@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 const nextConfig = {
-  output: "export",
-  basePath:basePath,
+  output: 'export',
+  basePath: basePath,
   // Optional: Add a trailing slash to all paths `/about` -> `/about/`
   // trailingSlash: true,
   // Optional: Change the output directory `out` -> `dist`

@@ -1,13 +1,13 @@
 /** @jsxImportSource @emotion/react */
-"use client";
-import { css } from "@emotion/react";
-import DataTable from "@/components/DataTable/DataTable";
-import Filter from "@/components/Filter/Filter";
-import PopulationChangeGraph from "@/components/Graph/PopulationChangeGraph";
-import PopulationDensityGraph from "@/components/Graph/PopulationDensityGraph";
-import PrefPopulationGraph from "@/components/Graph/PrefPopulationGraph";
-import { useFetch } from "@/hooks/useFetch";
-import { PrefPopulation } from "@/types/Response";
+'use client';
+import { css } from '@emotion/react';
+import DataTable from '@/components/DataTable/DataTable';
+import Filter from '@/components/Filter/Filter';
+import PopulationChangeGraph from '@/components/Graph/PopulationChangeGraph';
+import PopulationDensityGraph from '@/components/Graph/PopulationDensityGraph';
+import PrefPopulationGraph from '@/components/Graph/PrefPopulationGraph';
+import { useFetch } from '@/hooks/useFetch';
+import { PrefPopulation } from '@/types/Response';
 import {
   AppBar,
   Box,
@@ -16,7 +16,7 @@ import {
   Toolbar,
   Typography,
   colors,
-} from "@mui/material";
+} from '@mui/material';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -29,18 +29,18 @@ import {
   PointElement,
   LineController,
   UpdateMode,
-} from "chart.js";
+} from 'chart.js';
 import {
   SyntheticEvent,
   useCallback,
   useEffect,
   useRef,
   useState,
-} from "react";
-import GraphTab from "@/components/GraphTab";
-import { TAB_NAME, TabState } from "@/types/TabState";
-import { theme } from "./theme/theme";
-import PrefPopulationIncreaseGraph from "@/components/Graph/PrefPopulationIncreaseGraph";
+} from 'react';
+import GraphTab from '@/components/GraphTab';
+import { TAB_NAME, TabState } from '@/types/TabState';
+import { theme } from './theme/theme';
+import PrefPopulationIncreaseGraph from '@/components/Graph/PrefPopulationIncreaseGraph';
 
 ChartJS.register(
   CategoryScale,
@@ -68,7 +68,7 @@ const Page = () => {
 
   const [tabValue, setTabValue] = useState<TabState>(TAB_NAME.Population);
 
-  const [chartUpdateMode, setChartUpdateMode] = useState<UpdateMode>("none");
+  const [chartUpdateMode, setChartUpdateMode] = useState<UpdateMode>('none');
 
   /**
    * タブの切り替え
@@ -77,14 +77,14 @@ const Page = () => {
    */
   const handleTabChange = (_: SyntheticEvent, newValue: TabState) => {
     setTabValue(newValue);
-    setChartUpdateMode("show");
+    setChartUpdateMode('show');
   };
 
   // チェックボックスの状態が変更されたときに呼ばれる関数です
   const handleFilter = useCallback(
     (filteredPref: PrefPopulation[]) => {
       setFilteredPrefList(filteredPref);
-      setChartUpdateMode("active");
+      setChartUpdateMode('active');
     },
     [setFilteredPrefList]
   );
@@ -93,7 +93,7 @@ const Page = () => {
   if (yearElement.current) {
     const date = new Date();
     const year = date.getFullYear();
-    yearElement.current.textContent = year;
+    yearElement.current.textContent = String(year);
   }
 
   const layoutStyle = (tabValue: TabState) => css`
@@ -125,7 +125,7 @@ const Page = () => {
         <AppBar position="static" sx={{ p: 1 }}>
           <Toolbar>
             <Typography variant="h1" component="h1">
-              タイトル
+              日本の都道府県別人口データ
             </Typography>
           </Toolbar>
         </AppBar>
@@ -187,7 +187,7 @@ const Page = () => {
           </Paper>
           {tabValue !== TAB_NAME.Changes && (
             <div css={filterStyle}>
-              <Paper sx={{ height: "100%" }}>
+              <Paper sx={{ height: '100%' }}>
                 <Box sx={{ p: 2 }}>
                   {prefPopulationList && (
                     <Filter

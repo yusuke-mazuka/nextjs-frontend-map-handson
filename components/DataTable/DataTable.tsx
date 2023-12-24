@@ -1,33 +1,57 @@
 /** @jsxImportSource @emotion/react */
-import { PrefPopulation } from "@/types/Response";
-import { commaToNum } from "@/utils/commaToNum";
-import { excludeAllfromPref } from "@/utils/excludeAllfromPref";
-import { roundToDecimal } from "@/utils/roundToDecimal";
-import { separateComma } from "@/utils/separateComma";
-import { sortPrefId } from "@/utils/sortPref";
-import { css } from "@emotion/react";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { PrefPopulation } from '@/types/Response';
+import { commaToNum } from '@/utils/commaToNum';
+import { excludeAllfromPref } from '@/utils/excludeAllfromPref';
+import { roundToDecimal } from '@/utils/roundToDecimal';
+import { separateComma } from '@/utils/separateComma';
+import { sortPrefId } from '@/utils/sortPref';
+import { css } from '@emotion/react';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
 type Props = {
   prefPopulationList: PrefPopulation[];
 };
 
 const DataTable = ({ prefPopulationList }: Props) => {
-  const columns: GridColDef[] = [{field: "prefName",headerName: "都道府県",width: 240,sortComparator: sortPrefId,},
-  {field: "population",headerName: "人口（人）",headerAlign: "right",align: "right",width: 180,sortComparator: (v1, v2) => {
-        return commaToNum(v1) - commaToNum(v2);},
+  const columns: GridColDef[] = [
+    {
+      field: 'prefName',
+      headerName: '都道府県',
+      width: 240,
+      sortComparator: sortPrefId,
     },
-{field: "populationDensity",headerName: "人口密度（人/km²）",headerAlign: "right",align: "right",width: 180,
+    {
+      field: 'population',
+      headerName: '人口（人）',
+      headerAlign: 'right',
+      align: 'right',
+      width: 180,
+      sortComparator: (v1, v2) => {
+        return commaToNum(v1) - commaToNum(v2);
+      },
     },
-{ field: "populationIncrease",headerName: "5年間の人口増減数（人）",
-      headerAlign: "right",align: "right",
-      width: 200,sortComparator: (v1, v2) => {
-        return commaToNum(v1) - commaToNum(v2);},
-    },{
-      field: "populationIncreaseRatio",
- headerName: "5年間の人口増減率（%）",
-  headerAlign: "right",
-    align: "right",
+    {
+      field: 'populationDensity',
+      headerName: '人口密度（人/km²）',
+      headerAlign: 'right',
+      align: 'right',
+      width: 180,
+    },
+    {
+      field: 'populationIncrease',
+      headerName: '5年間の人口増減数（人）',
+      headerAlign: 'right',
+      align: 'right',
+      width: 200,
+      sortComparator: (v1, v2) => {
+        return commaToNum(v1) - commaToNum(v2);
+      },
+    },
+    {
+      field: 'populationIncreaseRatio',
+      headerName: '5年間の人口増減率（%）',
+      headerAlign: 'right',
+      align: 'right',
       width: 200,
     },
   ];
@@ -66,7 +90,7 @@ const DataTable = ({ prefPopulationList }: Props) => {
       <DataGrid
         rows={rows}
         columns={columns}
-        sortingOrder={["desc", "asc"]}
+        sortingOrder={['desc', 'asc']}
         hideFooter
       />
     </div>
