@@ -1,16 +1,16 @@
 /** @jsxImportSource @emotion/react */
-import { PrefPopulation } from "@/types/Response";
-import { excludeAllfromPref } from "@/utils/excludeAllfromPref";
+import { PrefPopulation } from '@/types/Response';
+import { excludeAllfromPref } from '@/utils/excludeAllfromPref';
 import {
   Checkbox,
   Divider,
   FormControlLabel,
   FormGroup,
   Typography,
-} from "@mui/material";
-import { SyntheticEvent, useCallback, useState } from "react";
-import { generateRegionTree } from "./generateRegionTree";
-import { css } from "@emotion/react";
+} from '@mui/material';
+import { SyntheticEvent, useCallback, useState } from 'react';
+import { generateRegionTree } from './generateRegionTree';
+import { css } from '@emotion/react';
 
 type Props = {
   prefPopulationList: PrefPopulation[];
@@ -43,7 +43,7 @@ const Filter = ({ prefPopulationList, onChange }: Props) => {
   const handleChange = useCallback(
     (e: SyntheticEvent, prefCode: string) => {
       const prefIndex = checkedPref.findIndex(
-        (pref) => pref.prefCode === prefCode
+        (pref) => pref.prefCode === prefCode,
       );
       checkedPref[prefIndex].checked = (e.target as HTMLInputElement).checked;
       setCheckedPref(checkedPref);
@@ -68,11 +68,11 @@ const Filter = ({ prefPopulationList, onChange }: Props) => {
             populationDensity,
             populationIncrease,
             populationIncreaseRatio,
-          })
+          }),
         );
       onChange(filteredPref);
     },
-    [checkedPref, onChange]
+    [checkedPref, onChange],
   );
 
   const titleStyle = css`
@@ -111,7 +111,7 @@ const Filter = ({ prefPopulationList, onChange }: Props) => {
                         handleChange(e, pref.prefCode);
                       }}
                       sx={{
-                        ".MuiFormControlLabel-label": { fontSize: "14px" },
+                        '.MuiFormControlLabel-label': { fontSize: '14px' },
                       }}
                     />
                   );

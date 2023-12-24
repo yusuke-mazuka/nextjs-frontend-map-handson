@@ -1,4 +1,4 @@
-import { PrefCheckList } from "./Filter";
+import { PrefCheckList } from './Filter';
 
 /**
  * 地域ごとに都道府県をまとめたオブジェクトの配列を生成します。

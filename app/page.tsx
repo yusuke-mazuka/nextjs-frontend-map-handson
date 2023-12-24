@@ -51,7 +51,7 @@ ChartJS.register(
   Legend,
   LineElement,
   PointElement,
-  LineController
+  LineController,
 );
 
 ChartJS.defaults.font.family = theme.typography.fontFamily;
@@ -86,7 +86,7 @@ const Page = () => {
       setFilteredPrefList(filteredPref);
       setChartUpdateMode('active');
     },
-    [setFilteredPrefList]
+    [setFilteredPrefList],
   );
 
   const yearElement = useRef<HTMLElement>(null);

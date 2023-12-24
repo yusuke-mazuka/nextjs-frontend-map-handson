@@ -1,5 +1,5 @@
-import { ChangesPopulation, PrefPopulation } from "@/types/Response";
-import { useEffect, useRef, useState } from "react";
+import { ChangesPopulation, PrefPopulation } from '@/types/Response';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * JSONデータをフェッチします
@@ -34,7 +34,7 @@ export const useFetch = () => {
         };
       }
 
-      const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+      const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
       const fetchPref = fetch(`${basePath}/json/pref_population.json`);
       const fetchChanges = fetch(`${basePath}/json/changes_population.json`);

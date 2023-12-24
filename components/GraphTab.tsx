@@ -1,8 +1,8 @@
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
-import { SyntheticEvent } from "react";
-import { TabState } from "@/types/TabState";
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import { SyntheticEvent } from 'react';
+import { TabState } from '@/types/TabState';
 
 type Props = {
   onChange: (e: SyntheticEvent, newValue: TabState) => void;
@@ -11,7 +11,7 @@ type Props = {
 
 const GraphTab = ({ onChange, value }: Props) => {
   return (
-    <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <Tabs value={value} onChange={onChange}>
         <Tab label="都道府県別人口" />
         <Tab label="都道府県別人口密度" />

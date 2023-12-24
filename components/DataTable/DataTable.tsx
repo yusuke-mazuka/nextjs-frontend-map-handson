@@ -75,7 +75,7 @@ const DataTable = ({ prefPopulationList }: Props) => {
         populationIncrease: separateComma(populationIncrease),
         populationIncreaseRatio: roundToDecimal(populationIncreaseRatio, 2),
       };
-    }
+    },
   );
   const style = css`
     width: 100%;

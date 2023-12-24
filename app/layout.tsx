@@ -1,5 +1,5 @@
-import RootStyleRegistry from "./emotion";
-import "./globals.css";
+import RootStyleRegistry from './emotion';
+import './globals.css';
 
 export default function RootLayout({ children }: { children: JSX.Element }) {
   return (

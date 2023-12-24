@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import { theme } from "@/app/theme/theme";
-import { PrefPopulation } from "@/types/Response";
-import { excludeAllfromPref } from "@/utils/excludeAllfromPref";
-import { css } from "@emotion/react";
-import { UpdateMode } from "chart.js";
+import { theme } from '@/app/theme/theme';
+import { PrefPopulation } from '@/types/Response';
+import { excludeAllfromPref } from '@/utils/excludeAllfromPref';
+import { css } from '@emotion/react';
+import { UpdateMode } from 'chart.js';
 
-import { Bar } from "react-chartjs-2";
+import { Bar } from 'react-chartjs-2';
 
 type Props = {
   prefPopulationList: PrefPopulation[];
@@ -23,7 +23,7 @@ const PrefPopulationIncreaseGraph = ({
     labels,
     datasets: [
       {
-        label: "5年間の人口増減数",
+        label: '5年間の人口増減数',
         data: populationData,
         backgroundColor: theme.palette.primary.light,
       },
@@ -31,15 +31,15 @@ const PrefPopulationIncreaseGraph = ({
   };
   const options = {
     maintainAspectRatio: false,
-    indexAxis: "y" as const,
+    indexAxis: 'y' as const,
     scales: {
       x: {
         min: -600000,
         max: 600000,
         title: {
           display: true,
-          text: "単位：人",
-          align: "end" as const,
+          text: '単位：人',
+          align: 'end' as const,
         },
       },
     },

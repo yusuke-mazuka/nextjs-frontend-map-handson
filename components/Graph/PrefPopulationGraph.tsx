@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import { theme } from "@/app/theme/theme";
-import { PrefPopulation } from "@/types/Response";
-import { excludeAllfromPref } from "@/utils/excludeAllfromPref";
-import { css } from "@emotion/react";
-import { UpdateMode } from "chart.js";
+import { theme } from '@/app/theme/theme';
+import { PrefPopulation } from '@/types/Response';
+import { excludeAllfromPref } from '@/utils/excludeAllfromPref';
+import { css } from '@emotion/react';
+import { UpdateMode } from 'chart.js';
 
-import { Bar } from "react-chartjs-2";
+import { Bar } from 'react-chartjs-2';
 
 type Props = {
   prefPopulationList: PrefPopulation[];
@@ -20,7 +20,7 @@ const PrefPopulationGraph = ({ prefPopulationList, updateMode }: Props) => {
     labels,
     datasets: [
       {
-        label: "人口",
+        label: '人口',
         data: populationData,
         backgroundColor: theme.palette.primary.light,
       },
@@ -28,13 +28,13 @@ const PrefPopulationGraph = ({ prefPopulationList, updateMode }: Props) => {
   };
   const options = {
     maintainAspectRatio: false,
-    indexAxis: "y" as const,
+    indexAxis: 'y' as const,
     scales: {
       x: {
         title: {
           display: true,
-          text: "単位：人",
-          align: "end" as const,
+          text: '単位：人',
+          align: 'end' as const,
         },
       },
     },

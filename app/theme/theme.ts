@@ -1,9 +1,9 @@
-import { createTheme } from "@mui/material";
-import { BIZ_UDPGothic } from "next/font/google";
+import { createTheme } from '@mui/material';
+import { BIZ_UDPGothic } from 'next/font/google';
 
 const bizUdPGothic = BIZ_UDPGothic({
-  weight: ["400", "700"],
-  display: "swap",
+  weight: ['400', '700'],
+  display: 'swap',
   preload: false,
 });
 
@@ -24,7 +24,7 @@ export const theme = createTheme({
     h4: {
       fontSize: 14,
     },
-    fontFamily: [bizUdPGothic.style.fontFamily, "sans-serif"].join(","),
+    fontFamily: [bizUdPGothic.style.fontFamily, 'sans-serif'].join(','),
   },
   shape: {
     borderRadius: 8,
