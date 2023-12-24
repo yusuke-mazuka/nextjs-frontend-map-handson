@@ -1,5 +1,6 @@
 {
-  "name": "hands-on-example",
+  "name": "react-nextjs-example",
+  "description": "フロントエンドの知識地図 - 第3章サンプルプログラムより",
   "version": "1.0.0",
   "private": true,
   "scripts": {
