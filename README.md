@@ -1,4 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# nextjs-frontend-map-handson
+
+## Description
+
+- 『フロントエンドの知識地図』「Section3.1 実践！フロントエンド開発」より。
+- [ics-creative / project-frontend-map-examples](https://github.com/ics-creative/project-frontend-map-examples) よりクローン。
 
 ## Getting Started
 

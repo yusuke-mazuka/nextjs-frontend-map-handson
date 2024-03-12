@@ -1,10 +1,10 @@
 {
-  "name": "react-nextjs-example",
+  "name": "nextjs-frontend-roadmap-handson",
   "description": "フロントエンドの知識地図 - 第3章サンプルプログラムより",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "serve out -p 3333",
     "type-check": "tsc --noEmit",
